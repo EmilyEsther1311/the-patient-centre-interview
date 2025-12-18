@@ -26,8 +26,8 @@ ___
 ### Setup Instructions
 1. Clone the repository
 ```
-git clone <your-repository-url>
-cd <your-repository-name>
+git clone https://github.com/EmilyEsther1311/the-patient-centre-interview.git
+cd the-patiente-centre-interview
 ```
 
 2. Create and activate a virtual environment
