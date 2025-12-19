@@ -75,7 +75,7 @@ class AnalyticsBuffer:
 
     #If track() or track(None) is called, no event is added to the buffer but the value of timer is checked (potential flush)
     def track(self, event = None):
-        if event:
+        if not event is None:
             self.buffer.append(event)
 
         #Calculate the time since the last successful API call (in seconds)
