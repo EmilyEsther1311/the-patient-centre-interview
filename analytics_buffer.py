@@ -90,15 +90,17 @@ class AnalyticsBuffer:
             raise RuntimeError("API is down")
 
     def flush(self):
-        #Successful API call
-        if self.api.call():
-            #Remove all events from buffer
-            self.buffer.clear()
-            #Update time stored in 'lastCall'/re-set the timer
-            self.lastCall = datetime.now()
-            #Re-set value of 'failureCount' to 0
-            self.failureCount = 0
-        #Unsuccessful API call
-        else:
-            print("API call failed")
-            self.failureCount += 1
+        #Avoid unecessary flushes
+        if len(self.buffer) > 0:
+            #Successful API call
+            if self.api.call():
+                #Remove all events from buffer
+                self.buffer.clear()
+                #Update time stored in 'lastCall'/re-set the timer
+                self.lastCall = datetime.now()
+                #Re-set value of 'failureCount' to 0
+                self.failureCount = 0
+            #Unsuccessful API call
+            else:
+                print("API call failed")
+                self.failureCount += 1
