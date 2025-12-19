@@ -102,8 +102,9 @@ ___
 
 ### Possible Improvements
 The following improvements could be made:
-* Use an async event loop instead of synchronous calls
+* Make the `track()` function non-blocking by using concurrent programming
 * Make the timer check continuous, not just when `track()` is called
+* Store the events which are sent to the API in a list
 
 ___
 
