@@ -27,7 +27,7 @@ ___
 1. Clone the repository
 ```
 git clone https://github.com/EmilyEsther1311/the-patient-centre-interview.git
-cd the-patiente-centre-interview
+cd the-patient-centre-interview
 ```
 
 2. Create and activate a virtual environment
