@@ -79,3 +79,14 @@ def test_failure_limit_raises_runtime_error():
 
     with pytest.raises(RuntimeError):
         buffer.track("event2")
+
+def test_empty_buffer_does_not_cause_flush():
+    api = MockApi(0)  # Always unsuccessful API
+    buffer = AnalyticsBuffer(5,10, api,10)
+
+    #Timer initiates flush but buffer is empty
+    buffer.lastCall = datetime.now() - timedelta(seconds=6)
+    buffer.track()
+
+    #Flush occurred -> `failureCount = 1`, since API unsuccessful
+    assert buffer.failureCount == 0
